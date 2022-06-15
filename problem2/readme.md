@@ -1,4 +1,5 @@
 ### insert data into table
+---
 
 ```
 INSERT INTO customer(id,ssn,first_name,favorite_color,last_updated)
@@ -10,6 +11,7 @@ VALUES(456,123456789,"Doe",'2020-03-22');
 ```
 
 ### check the data
+---
 ```
 SELECT *
 FROM customer;
@@ -19,6 +21,7 @@ FROM customer;
 
 
 ### merge the data 
+---
 ```
 SELECT c.ssn,
 	MAX(CASE WHEN id_num = 1 THEN id END) AS id,
@@ -41,3 +44,9 @@ GROUP BY ssn;
 
 
 ![image](https://user-images.githubusercontent.com/32189071/173955080-d62dc116-bfaf-4b2e-b5fc-2ae5f0105f84.png)
+
+
+### explaining
+---
+
+
