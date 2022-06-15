@@ -1,4 +1,4 @@
-### insert data to table
+### insert data into table
 
 ```
 INSERT INTO customer(id,ssn,first_name,favorite_color,last_updated)
