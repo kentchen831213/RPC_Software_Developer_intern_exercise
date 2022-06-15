@@ -1,0 +1,30 @@
+html, body {
+  margin:0px;
+  height:100%;
+}
+
+.row{
+  height: 100%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    width: 100%;
+  }
+}
+
+img {
+width: 100%;
+height: auto;
+}
+
+#row2{
+  background-color: #0000FF;
+  color: white;
+}
