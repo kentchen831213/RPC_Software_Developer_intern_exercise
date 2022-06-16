@@ -49,6 +49,10 @@ GROUP BY ssn;
 ### explaining
 ---
 
+
+![image](https://user-images.githubusercontent.com/32189071/173970799-0f40ed66-71f3-48b8-ae23-394034bc9d35.png)
+
+
 ### reference
 ---
 - [ROW_NUMBER()](https://www.javatpoint.com/mysql-row_number-function)
