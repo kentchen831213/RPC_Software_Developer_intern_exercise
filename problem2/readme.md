@@ -24,7 +24,7 @@ FROM customer;
 ---
 ```
 SELECT c.ssn,
-	MAX(CASE WHEN id_num = 1 THEN id END) AS id,
+    MAX(CASE WHEN id_num = 1 THEN id END) AS id,
     MAX(CASE WHEN first_name_num = 1 THEN first_name END) AS first_name,
     MAX(CASE WHEN last_name_num = 1 THEN last_name END) AS last_name,
     MAX(CASE WHEN favorite_color_num = 1 THEN favorite_color END) AS favorite_color,
@@ -32,7 +32,7 @@ SELECT c.ssn,
 FROM (SELECT c.*,
 		ROW_NUMBER() OVER(PARTITION BY ssn 
 							ORDER BY (CASE WHEN id IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS id_num,
-        ROW_NUMBER() OVER(PARTITION BY ssn 
+        	ROW_NUMBER() OVER(PARTITION BY ssn 
 							ORDER BY (CASE WHEN first_name IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS first_name_num,                    
 		ROW_NUMBER() OVER(PARTITION BY ssn 
 							ORDER BY (CASE WHEN last_name IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS last_name_num,    
