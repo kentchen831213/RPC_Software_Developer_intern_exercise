@@ -46,7 +46,16 @@ GROUP BY ssn;
 ![image](https://user-images.githubusercontent.com/32189071/173977844-4aefd63f-7508-46a8-976d-b9dc40cbce55.png)
 
 
-
+### delete other records with same ssn
+---
+```
+DELETE FROM customer as c1
+WHERE last_updated<(
+	SELECT * FROM(
+	SELECT MAX(last_updated)
+    FROM customer as c2
+    WHERE c1.ssn = c2.ssn) as temp);
+```
 
 ### explaining
 ---
