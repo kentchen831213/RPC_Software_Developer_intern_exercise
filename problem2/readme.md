@@ -51,7 +51,7 @@ GROUP BY ssn;
 
 
 ![image](https://user-images.githubusercontent.com/32189071/173970799-0f40ed66-71f3-48b8-ae23-394034bc9d35.png)
-
+First, in the inner query, utilize the ROW_NUMBER() function and ssn(primary key) to sort each column according to their date and use the CASE statement to filter out NULL values. After querying, it would produce the sort number for each column. And for the outer query, use MAX aggregate function and CASE statement to choose the latest value for each column.
 
 ### reference
 ---
