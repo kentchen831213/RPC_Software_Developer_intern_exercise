@@ -49,4 +49,7 @@ GROUP BY ssn;
 ### explaining
 ---
 
-
+### reference
+---
+- [ROW_NUMBER()](https://www.javatpoint.com/mysql-row_number-function)
+- [unpivot](https://ubiq.co/database-blog/unpivot-table-mysql/)
