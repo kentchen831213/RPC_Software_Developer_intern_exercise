@@ -56,6 +56,9 @@ WHERE last_updated<(
     FROM customer as c2
     WHERE c1.ssn = c2.ssn) as temp);
 ```
+![image](https://user-images.githubusercontent.com/32189071/173978242-0a43f02b-a2aa-497c-ab0c-8265c62cb8c0.png)
+
+
 
 ### explaining
 ---
