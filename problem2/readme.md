@@ -23,27 +23,29 @@ FROM customer;
 ### merge the data 
 ---
 ```
+INSERT INTO customer(ssn,id,first_name,last_name,favorite_color,last_updated)
 SELECT c.ssn,
-    MAX(CASE WHEN id_num = 1 THEN id END) AS id,
+	MAX(CASE WHEN id_num = 1 THEN id END) AS id,
     MAX(CASE WHEN first_name_num = 1 THEN first_name END) AS first_name,
     MAX(CASE WHEN last_name_num = 1 THEN last_name END) AS last_name,
     MAX(CASE WHEN favorite_color_num = 1 THEN favorite_color END) AS favorite_color,
     CURRENT_TIMESTAMP() AS last_updated
 FROM (SELECT c.*,
 		ROW_NUMBER() OVER(PARTITION BY ssn 
-							ORDER BY (CASE WHEN id IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS id_num,
-        	ROW_NUMBER() OVER(PARTITION BY ssn 
-							ORDER BY (CASE WHEN first_name IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS first_name_num,                    
+							ORDER BY  last_updated DESC) AS id_num,
+        ROW_NUMBER() OVER(PARTITION BY ssn 
+							ORDER BY (CASE WHEN first_name IS NOT NULL THEN 1 ELSE 2 END), last_updated DESC) AS first_name_num,                    
 		ROW_NUMBER() OVER(PARTITION BY ssn 
-							ORDER BY (CASE WHEN last_name IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS last_name_num,    
+							ORDER BY (CASE WHEN last_name IS NOT NULL THEN 1 ELSE 2 END), last_updated DESC) AS last_name_num,    
 		ROW_NUMBER() OVER(PARTITION BY ssn 
-							ORDER BY (CASE WHEN favorite_color IS NOT NULL THEN 0 ELSE 1 END), last_updated DESC) AS favorite_color_num
+							ORDER BY (CASE WHEN favorite_color IS NOT NULL THEN 1 ELSE 2 END), last_updated DESC) AS favorite_color_num
 		FROM customer AS c) AS c
 GROUP BY ssn;
 ```
 
+![image](https://user-images.githubusercontent.com/32189071/173977844-4aefd63f-7508-46a8-976d-b9dc40cbce55.png)
 
-![image](https://user-images.githubusercontent.com/32189071/173955080-d62dc116-bfaf-4b2e-b5fc-2ae5f0105f84.png)
+
 
 
 ### explaining
