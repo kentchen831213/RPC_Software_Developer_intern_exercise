@@ -57,3 +57,4 @@ GROUP BY ssn;
 ---
 - [ROW_NUMBER()](https://www.javatpoint.com/mysql-row_number-function)
 - [unpivot](https://ubiq.co/database-blog/unpivot-table-mysql/)
+- [CASE_WHEN](https://www.w3schools.com/sql/sql_case.asp)
