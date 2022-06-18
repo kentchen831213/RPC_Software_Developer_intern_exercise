@@ -1,1 +1,42 @@
-<h2>Hello {{name}} !</h2>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    
+  <script>
+    var number = parseInt({number})
+
+  </script> 
+
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+        <h2>Hello {{name}} !</h2>
+
+        <form action="/hello/{{name}}" method="POST" class="search-form my-2 my-lg-0" id="search-box">
+
+            <input type="text" name="number" class="search_box" placeholder="Input from -25 to 25 "
+                   id="search-box"
+                   class='search_box'>
+            <button type="submit" for="search-box" class="fas fa-search">Cipher!</button>
+        </form>
+
+
+    </div>
+  </body>
+</html>
+
+
+
+<!-- 
+<form action="/action_page.php" method="get" id="form1">
+    <label for="fname">Input a value:</label>
+    <input type="text" id="fname" name="fname"><br><br>
+</form>
+    
+<button type="submit" form="form1" value="Cipher!">Cipher</button> -->
+
+
