@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    
-  <script>
-    var number = parseInt({number})
 
-  </script> 
+    <script>
+        function cipher(){
+            var number = parseInt("{{number}}")
+            if (-25>number || number>25) {
+                var ciphername = "{{name}}"
+                alert("please input between -25 to 25");
+            }
+            else{
+                if (number<0){
+                    number += 26
+                }
+                var ciphername = ""
+                var shift = 0
+                for (let i = 0; i<"{{name}}".length;i++){
+                    shift = "{{name}}"[i].charCodeAt(0)+number
+                    if(shift>90){
+                        shift -= 26
+                    }
+                    ciphername += String.fromCharCode(shift) 
+                }
+            }
+            document.getElementById("myciphercode").innerHTML = ciphername;
+        }
+    </script> 
 
   <head>
     <meta charset="utf-8">
     <title>Hello</title>
   </head>
-  <body>
+  <body onload="cipher()">
 
     <div class="container">
 
+        {% if number %}
+        <h2>Hello <span id="myciphercode"></span> !</h2>
+
+        {% else %}
         <h2>Hello {{name}} !</h2>
+        {% endif %}
 
         <form action="/hello/{{name}}" method="POST" class="search-form my-2 my-lg-0" id="search-box">
 
@@ -24,19 +49,11 @@
             <button type="submit" for="search-box" class="fas fa-search">Cipher!</button>
         </form>
 
-
     </div>
   </body>
 </html>
 
 
 
-<!-- 
-<form action="/action_page.php" method="get" id="form1">
-    <label for="fname">Input a value:</label>
-    <input type="text" id="fname" name="fname"><br><br>
-</form>
-    
-<button type="submit" form="form1" value="Cipher!">Cipher</button> -->
 
 
